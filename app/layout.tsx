@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/navbar";
+import AuthProvider from "@/components/auth-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,16 +19,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.className} overflow-hidden bg-zinc-950 text-white`}
-      >
+      <AuthProvider>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <main className="flex h-screen">
-            <Navbar></Navbar>
-            <section className="flex-1 p-12">{children}</section>
-          </main>
+          <body
+            className={`${inter.className} overflow-hidden bg-zinc-950 text-white`}
+          >
+            <main className="flex h-screen">
+              <Navbar></Navbar>
+              <section className="flex-1 p-12">{children}</section>
+            </main>
+          </body>
         </ThemeProvider>
-      </body>
+      </AuthProvider>
     </html>
   );
 }

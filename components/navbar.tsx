@@ -4,6 +4,7 @@ import { Settings, User } from "lucide-react";
 import { ModeToggle } from "./ui/theme-toggle";
 import Image from "next/image";
 import Link from "next/link";
+import { SignInButton } from "./auth-buttons";
 
 export default function Navbar() {
   return (
@@ -54,6 +55,9 @@ export default function Navbar() {
               <Link href="/about" className="block px-6 py-3">
                 About us
               </Link>
+            </li>
+            <li className="px-6 py-2 mt-4 rounded-md">
+              <SignInButton></SignInButton>
             </li>
           </ul>
         </nav>
