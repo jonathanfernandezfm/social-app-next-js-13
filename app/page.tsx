@@ -4,11 +4,10 @@ import { redirect } from "next/navigation";
 export default async function Home() {
   const session = await getServerSession();
 
-  console.log(session);
-
-  if (!session) {
-    redirect("/api/auth/signin");
-  }
+  // console.log(session);
+  // if (!session) {
+  //   redirect("/api/auth/signin");
+  // }
 
   return (
     <main className="flex h-screen">

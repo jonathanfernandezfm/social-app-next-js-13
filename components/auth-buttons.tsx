@@ -8,7 +8,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 export function SignInButton() {
   const { data: session, status } = useSession();
-  console.log(session, status);
 
   if (status === "authenticated") {
     return (
