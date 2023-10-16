@@ -8,7 +8,7 @@ import { SignInButton } from "./auth-buttons";
 
 export default function Navbar() {
   return (
-    <section className="flex h-full max-w-sm flex-col justify-between border-r-[1px] border-r-zinc-800 px-10 py-6">
+    <section className="flex h-full w-96 shrink-0 flex-col justify-between border-r-[1px] border-r-zinc-800 px-10 py-6">
       <div>
         <Link href="/">
           <Image
@@ -20,43 +20,43 @@ export default function Navbar() {
         </Link>
         <nav className="text-lg">
           <ul>
-            <li className="mt-4 rounded-md cursor-pointer outline-1 hover:bg-zinc-900 hover:outline hover:outline-zinc-700">
+            <li className="mt-4 rounded-sm cursor-pointer outline-1 hover:bg-zinc-900 hover:outline hover:outline-zinc-700">
               <Link href="/dashboard" className="block px-6 py-3">
                 Dashboard
               </Link>
             </li>
-            <li className="mt-4 rounded-md cursor-pointer outline-1 hover:bg-zinc-900 hover:outline hover:outline-zinc-700">
+            <li className="mt-4 rounded-sm cursor-pointer outline-1 hover:bg-zinc-900 hover:outline hover:outline-zinc-700">
               <Link href="/projects" className="block px-6 py-3">
                 Projects
               </Link>
             </li>
-            <li className="mt-4 rounded-md cursor-pointer outline-1 hover:bg-zinc-900 hover:outline hover:outline-zinc-700">
-              <Link href="/invoices" className="block px-6 py-3">
-                Invoices
+            <li className="mt-4 rounded-sm cursor-pointer outline-1 hover:bg-zinc-900 hover:outline hover:outline-zinc-700">
+              <Link href="/users" className="block px-6 py-3">
+                Users
               </Link>
             </li>
-            <li className="mt-4 rounded-md cursor-pointer outline-1 hover:bg-zinc-900 hover:outline hover:outline-zinc-700">
-              <Link href="/tickets" className="block px-6 py-3">
-                Tickets
+            <li className="mt-4 rounded-sm cursor-pointer outline-1 hover:bg-zinc-900 hover:outline hover:outline-zinc-700">
+              <Link href="/blog" className="block px-6 py-3">
+                Blog
               </Link>
             </li>
-            <li className="mt-4 rounded-md cursor-pointer outline-1 hover:bg-zinc-900 hover:outline hover:outline-zinc-700">
+            <li className="mt-4 rounded-sm cursor-pointer outline-1 hover:bg-zinc-900 hover:outline hover:outline-zinc-700">
               <Link href="/help" className="block px-6 py-3">
                 Help
               </Link>
             </li>
             <div className="mt-4 w-full border-t-[1px] border-t-zinc-800"></div>
-            <li className="mt-4 rounded-md cursor-pointer outline-1 hover:bg-zinc-900 hover:outline hover:outline-zinc-700">
+            <li className="mt-4 rounded-sm cursor-pointer outline-1 hover:bg-zinc-900 hover:outline hover:outline-zinc-700">
               <Link href="/settings" className="block px-6 py-3">
                 Settings
               </Link>
             </li>
-            <li className="mt-4 rounded-md cursor-pointer outline-1 hover:bg-zinc-900 hover:outline hover:outline-zinc-700">
+            <li className="mt-4 rounded-sm cursor-pointer outline-1 hover:bg-zinc-900 hover:outline hover:outline-zinc-700">
               <Link href="/about" className="block px-6 py-3">
                 About us
               </Link>
             </li>
-            <li className="px-6 py-2 mt-4 rounded-md">
+            <li className="px-6 py-2 mt-4 rounded-sm">
               <SignInButton></SignInButton>
             </li>
           </ul>

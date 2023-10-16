@@ -1,3 +1,3 @@
 export default function Tickets() {
-  return <div>page</div>;
+  return <div>No tickets</div>;
 }

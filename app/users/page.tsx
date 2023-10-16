@@ -5,7 +5,7 @@ export default async function Users() {
   const users = await prisma.user.findMany();
 
   return (
-    <div className="flex gap-10">
+    <div className="flex flex-wrap gap-10 justify-evenly">
       {users.map((user) => (
         <UserCard key={user.id} user={user} />
       ))}

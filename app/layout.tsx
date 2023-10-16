@@ -8,8 +8,8 @@ import AuthProvider from "@/components/auth-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Dashboard ITSM",
-  description: "Dashboard ITSM",
+  title: "Social App",
+  description: "Social App to try out lates NextJS features",
 };
 
 export default function RootLayout({

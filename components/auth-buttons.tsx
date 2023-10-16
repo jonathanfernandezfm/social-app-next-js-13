@@ -16,7 +16,7 @@ export function SignInButton() {
           <Avatar>
             <AvatarImage src={session.user?.image ?? "/mememan.webp"} />
             <AvatarFallback>
-              {session.user?.name?.substring(0, 1)}
+              {session.user?.name?.substring(0, 2)}
             </AvatarFallback>
           </Avatar>
         </Link>
