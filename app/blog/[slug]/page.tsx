@@ -1,3 +1,4 @@
+import { Montserrat } from "next/font/google";
 import Image from "next/image";
 
 export const revalidate = 420;
@@ -11,6 +12,8 @@ interface Post {
 interface Props {
   params: { slug: string };
 }
+
+const montserrat = Montserrat({ subsets: ["latin"] });
 
 /** Generates slug to generate the pages at build time */
 export async function generateStaticParams() {
@@ -38,7 +41,7 @@ export default async function BlogPost({ params }: Props) {
         height={400}
         alt="Blog post image"
       />
-      <h1 className="mt-8 text-4xl font-bold">{post?.title}</h1>
+      <h1 className={`${montserrat.className} mt-8 text-4xl font-bold`}>{post?.title}</h1>
       <p className="mt-4 text-lg">{post?.content}</p>
     </div>
   );

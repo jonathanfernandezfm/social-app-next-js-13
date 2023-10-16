@@ -3,7 +3,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { authOptions } from "../auth/[...nextauth]/route";
 import { prisma } from "@/lib/prisma";
 
-
+/** 
+ * @deprecated In favor of actions '/users/[id]/actions.ts'
+ */
 export async function POST(req: Request) {
   const session = await getServerSession(authOptions);
   const currentEmail = session?.user?.email!;
@@ -23,6 +25,9 @@ export async function POST(req: Request) {
   return NextResponse.json(record);
 }
 
+/** 
+ * @deprecated In favor of actions '/users/[id]/actions.ts'
+ */
 export async function DELETE(req: NextRequest) {
   const session = await getServerSession(authOptions);
   const currentEmail = session?.user?.email!;

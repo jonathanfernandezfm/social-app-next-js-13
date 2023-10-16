@@ -27,8 +27,8 @@ export default function Projects() {
         <AlertCircle className="w-4 h-4" />
         <AlertTitle>Heads up!</AlertTitle>
         <AlertDescription>
-          This table is still under maintenance and the data might be not
-          update.
+          This table is still under maintenance and the data might not be up to
+          date.
         </AlertDescription>
       </Alert>
       <Table className="mt-10">

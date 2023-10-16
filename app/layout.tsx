@@ -22,7 +22,7 @@ export default function RootLayout({
       <AuthProvider>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <body
-            className={`${inter.className} overflow-hidden bg-zinc-950 text-white`}
+            className={`${inter.className} overflow-hidden bg-zinc-50  text-zinc-950 dark:bg-zinc-950 dark:text-zinc-50`}
           >
             <main className="flex h-screen">
               <Navbar></Navbar>

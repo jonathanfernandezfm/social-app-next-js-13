@@ -1,42 +1,45 @@
-"use client";
-
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
+import { revalidatePath } from "next/cache";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { prisma } from "@/lib/prisma";
 
 interface Props {
   user: any;
 }
 
-export function ProfileForm({ user }: Props) {
-  const updateUser = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+export async function ProfileForm({ user }: Props) {
+  const session = await getServerSession(authOptions);
 
-    const formData = new FormData(e.currentTarget);
+  async function updateUserAction(formData: FormData) {
+    "use server";
 
     const body = {
-      name: formData.get("name"),
-      bio: formData.get("bio"),
-      age: formData.get("age"),
-      image: formData.get("image"),
+      name: formData.get("name") as string,
+      bio: formData.get("bio") as string,
+      age: Number(formData.get("age")),
+      image: formData.get("image") as string,
     };
 
-    const res = await fetch("/api/user", {
-      method: "PUT",
-      body: JSON.stringify(body),
-      headers: {
-        "Content-Type": "application/json",
+    const currentEmail = session?.user?.email!;
+
+    await prisma.user.update({
+      where: {
+        email: currentEmail,
       },
+      data: body,
     });
 
-    await res.json();
-  };
+    revalidatePath("/settings");
+  }
 
   return (
     <div>
       <h2 className="mt-4 text-lg">Edit Your Profile</h2>
       <form
-        onSubmit={updateUser}
+        action={updateUserAction}
         className="mt-4 flex w-[500px] flex-col gap-4"
       >
         <Input
