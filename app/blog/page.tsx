@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import Link from "next/link";
 
@@ -8,6 +9,10 @@ interface Post {
   slug: string;
   content: string;
 }
+
+export const metadata: Metadata = {
+  title: "Blog",
+};
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -21,7 +26,9 @@ export default async function BlogPost() {
       {posts.map((post) => (
         <Link key={post.slug} href={`/blog/${post.slug}`}>
           <div className="rounded-md border-[1px] px-4 py-4">
-            <h1 className={`${montserrat.className} text-2xl font-bold`}>{post?.title}</h1>
+            <h1 className={`${montserrat.className} text-2xl font-bold`}>
+              {post?.title}
+            </h1>
             <p className="mt-4 text-lg">{post?.content}</p>
           </div>
         </Link>

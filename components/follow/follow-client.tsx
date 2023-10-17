@@ -6,9 +6,9 @@ import { follow, unfollow } from "@/app/users/[id]/actions";
 import { Loader2 } from "lucide-react";
 
 interface Props {
-  currentUserId: string;
+  currentUserId: string | null;
   targetUserId: string;
-  isFollowing: boolean;
+  isFollowing: boolean | null;
 }
 
 export default function FollowClient({
@@ -17,6 +17,10 @@ export default function FollowClient({
   isFollowing,
 }: Props) {
   const [isPending, startTransition] = useTransition();
+
+  if (currentUserId === null) {
+    return <Button disabled>Follow</Button>;
+  }
 
   if (isFollowing) {
     return (

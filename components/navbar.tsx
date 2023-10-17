@@ -12,11 +12,14 @@ import { prisma } from "@/lib/prisma";
 export default async function Navbar() {
   const session = await getServerSession(authOptions);
 
-  const user = await prisma.user.findUnique({
-    where: {
-      email: session?.user?.email!,
-    },
-  });
+  let user;
+  if (session) {
+    user = await prisma.user.findUnique({
+      where: {
+        email: session?.user?.email!,
+      },
+    });
+  }
 
   return (
     <section className="flex h-full w-96 shrink-0 flex-col justify-between border-r-[1px] border-r-zinc-300 px-10 py-6 dark:border-r-zinc-800">
@@ -66,8 +69,15 @@ export default async function Navbar() {
               </Link>
             </li>
             <div className="mt-4 w-full border-t-[1px] border-r-zinc-300 dark:border-t-zinc-800"></div>
-            <li className="mt-4 rounded-sm cursor-pointer outline-1 hover:bg-zinc-200 hover:outline hover:outline-zinc-400 dark:hover:bg-zinc-900 dark:hover:outline-zinc-700">
-              <Link href="/settings" className="block px-6 py-3">
+            <li
+              className={`${
+                session ? "" : "text-gray-600"
+              } mt-4 cursor-pointer rounded-sm outline-1 hover:bg-zinc-200 hover:outline hover:outline-zinc-400 dark:hover:bg-zinc-900 dark:hover:outline-zinc-700`}
+            >
+              <Link
+                href={session ? "/settings" : ""}
+                className="block px-6 py-3"
+              >
                 Settings
               </Link>
             </li>
@@ -85,20 +95,22 @@ export default async function Navbar() {
       <div>
         <div className="flex gap-4 mb-6">
           <Button variant="outline" size="icon" asChild>
-            <Link href={`/users/${user?.id}`}>
+            <Link href={session ? `/users/${user?.id}` : ""}>
               <User className="h-[1.2rem] w-[1.2rem] scale-100 transition-all" />
               <span className="sr-only">My profile</span>
             </Link>
           </Button>
           <Button variant="outline" size="icon" asChild>
-            <Link href={"/settings"}>
+            <Link href={session ? "/settings" : ""}>
               <Settings className="h-[1.2rem] w-[1.2rem] scale-100 transition-all" />
               <span className="sr-only">Settings</span>
             </Link>
           </Button>
           <ModeToggle></ModeToggle>
         </div>
-        <div className="w-full text-left">Copyright @ 2023. Version v0.1</div>
+        <div className="w-full text-left">
+          Copyright @ 2023. Version v0.1. Jonathan Fernández Mertanen
+        </div>
       </div>
     </section>
   );

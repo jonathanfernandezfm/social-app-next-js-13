@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function User({ params }: Props) {
   const session = await getServerSession(authOptions);
   const user = await prisma.user.findUnique({ where: { id: params.id } });
+  
   const following = await prisma.follows.findMany({
     where: { followerId: user?.id },
   });

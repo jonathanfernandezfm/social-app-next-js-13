@@ -1,10 +1,20 @@
 "use client";
 
 import { useSession, signIn, signOut } from "next-auth/react";
-import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "./ui/alert-dialog";
 
 export function SignInButton() {
   const { data: session, status } = useSession();
@@ -25,10 +35,29 @@ export function SignInButton() {
     );
   }
 
+  // <Button disabled={status === "loading"} onClick={() => signIn()}>
+  //    {status === "loading" ? "Loading..." : "Sign in"}
+  // </Button>
+
   return (
-    <Button disabled={status === "loading"} onClick={() => signIn()}>
-      {status === "loading" ? "Loading..." : "Sign in"}
-    </Button>
+    <AlertDialog>
+      <AlertDialogTrigger>
+        <Button>Sign in</Button>
+      </AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Sign in disabled</AlertDialogTitle>
+          <AlertDialogDescription>
+            This sign in uses NextAuth.js to authenticate using Github. For data
+            safety reasons, this project has sign in disabled so no data from
+            users is stored. All the data shown in /users is fake.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogAction>Accept</AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
   );
 }
 
