@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Social App Next.js
 
-## Getting Started
+## Description
 
-First, run the development server:
+Next.js 13 project to experiment and practice new features. There is not a clear product but a bunch of functionalities implemented in different sections.
+
+The project uses following features of Next.js:
+
+- Server components
+- Client components
+- Server actions
+- API directory
+- App directory
+- Metadata
+- Cache handling
+- generateStaticParams()
+
+## Stack
+
+<div style="display: flex; gap: 12px; align-items: center; flex-shrink: 0; flex-wrap: wrap">
+  <a href="https://nextjs.org/">
+    <img alt="Next.js" src="https://svgl.vercel.app/library/nextjs.svg"  width="50px" height="50px">
+  </a>
+  <a href="https://www.prisma.io/">
+    <img alt="Prisma" src="https://svgl.vercel.app/library/prisma.svg"  width="50px" height="50px">
+  </a>
+  <a href="https://bun.sh/">
+    <img alt="Bun" src="https://svgl.vercel.app/library/bun.svg"  width="50px" height="50px">
+  </a>
+  <a href="https://next-auth.js.org/">
+    <img alt="NextAuth.js" src="https://next-auth.js.org/img/logo/logo-sm.png" width="45px" height="50px">
+  </a>
+  <a href="https://neon.tech/">
+    <img alt="Neon.tech" src="https://neon.tech/favicon/favicon.png"  width="50px" height="50px">
+  </a>
+  <a href="https://ui.shadcn.com/">
+    <img alt="ShadcnUI" src="https://avatars.githubusercontent.com/u/124599?v=4"  width="50px" height="50px" style="border-radius: 50%">
+  </a>
+  <a href="https://tailwindcss.com/">
+    <img alt="Tailwind" src="https://svgl.vercel.app/library/tailwindcss.svg"  width="50px" height="40px">
+  </a>
+</div>
+
+## Installation
 
 ```bash
 npm run dev
 # or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the project.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Credits
+Jonathan Fernández Mertanen - <img style="margin-right: 5px" alt="Tailwind" src="https://svgl.vercel.app/library/github.svg"  width="12px" height="12px">[Github](https://github.com/jonathanfernandezfm)
