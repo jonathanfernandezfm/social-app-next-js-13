@@ -1,3 +1,4 @@
+import { posts } from "@/lib/data";
 import { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import Link from "next/link";
@@ -17,9 +18,9 @@ export const metadata: Metadata = {
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export default async function BlogPost() {
-  const posts: Post[] = await fetch("http://localhost:3000/api/content").then(
-    (res) => res.json(),
-  );
+  // const posts: Post[] = await fetch("http://localhost:3000/api/content").then(
+  //   (res) => res.json(),
+  // );
 
   return (
     <div className="grid h-full gap-4 overflow-auto">

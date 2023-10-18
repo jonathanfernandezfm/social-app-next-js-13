@@ -1,3 +1,4 @@
+import { posts } from "@/lib/data";
 import { Montserrat } from "next/font/google";
 import Image from "next/image";
 
@@ -17,9 +18,9 @@ const montserrat = Montserrat({ subsets: ["latin"] });
 
 /** Generates slug to generate the pages at build time */
 export async function generateStaticParams() {
-  const posts: Post[] = await fetch("http://localhost:3000/api/content").then(
-    (res) => res.json(),
-  );
+  // const posts: Post[] = await fetch("http://localhost:3000/api/content").then(
+  //   (res) => res.json(),
+  // );
 
   return posts.map((post) => ({
     slug: post.slug,
@@ -27,9 +28,9 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPost({ params }: Props) {
-  const posts: Post[] = await fetch("http://localhost:3000/api/content").then(
-    (res) => res.json(),
-  );
+  // const posts: Post[] = await fetch(
+  //   `${process.env.HTTP_PROTOCOL}${process.env.NEXT_PUBLIC_VERCEL_URL}/api/content`,
+  // ).then((res) => res.json());
 
   const post = posts.find((post) => post.slug === params.slug);
 
@@ -41,7 +42,9 @@ export default async function BlogPost({ params }: Props) {
         height={400}
         alt="Blog post image"
       />
-      <h1 className={`${montserrat.className} mt-8 text-4xl font-bold`}>{post?.title}</h1>
+      <h1 className={`${montserrat.className} mt-8 text-4xl font-bold`}>
+        {post?.title}
+      </h1>
       <p className="mt-4 text-lg">{post?.content}</p>
     </div>
   );
